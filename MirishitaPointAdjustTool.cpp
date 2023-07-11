@@ -17,7 +17,7 @@ int main(void)
 
     int surplus = 1;    //剰余
 
-    std::cout << " input target point> ";
+    std::cout << " input target point> ";           //目標・現在pt入力・差算出
     std::cin >> target;
 
     std::cout << " input current point> ";
@@ -26,23 +26,22 @@ int main(void)
     remain = target - current;
 
     while (1) {
-        std::cout << " input pt of live A> ";
+        std::cout << " input pt of live A> ";       //ライブpt設定
         std::cin >> ptA;
 
         std::cout << " input pt of live B> ";
         std::cin >> ptB;
 
-        while (surplus != 0) {
+        while (surplus != 0) {                      //互除法実行
             surplus = (remain - ptA * a) % ptB;
             a++;
 
         }
-
         b = (remain - ptA * (a - 1)) / ptB;
 
-        std::cout << " a: " << a - 1 << " b: " << b << std::endl;
+        std::cout << " a: " << a - 1 << " b: " << b << std::endl;   //結果出力
 
-        std::cout << " continue? (y/n) > ";
+        std::cout << " continue? (y/n) > ";         //終了判定とリセット
         std::cin >> f;
         if (f == 'n')break;
 
